@@ -1,9 +1,9 @@
-$folderPath = "C:\Users\jfalava\Desktop"
-$outputFilePath = "C:\Users\jfalava\Desktop\hash.txt"
+$folderPath = "path\to\folder"
+$outputFilePath = "path\to\txt\file\hash.txt"
 
-$mcdfFiles = Get-ChildItem -Path $folderPath -Filter "*.mcdf"
+$scanFiles = Get-ChildItem -Path $folderPath -Filter "*.extension"
 
-$hashes = foreach ($file in $mcdfFiles) {
+$hashes = foreach ($file in $scanFiles) {
     $hash = Get-FileHash -Path $file.FullName -Algorithm SHA256
     [PSCustomObject]@{
         FileName = $file.Name
